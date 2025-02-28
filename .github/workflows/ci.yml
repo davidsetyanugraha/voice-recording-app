@@ -42,5 +42,31 @@ jobs:
       - name: Run Unit test
         run: pnpm test
 
-      - name: Run E2E test
-        run: pnpm test:e2e
+  E2E:
+    name: Run E2E tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install PNPM
+        run: |
+          corepack enable
+          corepack prepare pnpm@latest --activate
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Install Playwright Browsers
+        run: pnpm exec playwright install --with-deps
+
+      - name: Run Playwright Tests
+        run: pnpm exec playwright test
