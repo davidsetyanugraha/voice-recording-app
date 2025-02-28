@@ -68,6 +68,12 @@ To watch changes while testing:
 pnpm test:watch
 ```
 
+To run e2e tests against production URL:
+
+```
+pnpm test:e2e
+```
+
 ## Technologies
 
 🖥️ **Frontend**: React, TypeScript, Vite  
