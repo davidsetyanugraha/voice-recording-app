@@ -22,7 +22,7 @@ export const Recorder = ({
           onClick={() => {
             start().catch(console.error);
           }}
-          className="bg-red-500 hover:bg-red-600 text-white p-4  rounded transition cursor-pointer"
+          className="bg-red-500 hover:bg-red-600 text-white p-4 w-32 rounded transition cursor-pointer"
         >
           Record
         </button>
@@ -32,7 +32,7 @@ export const Recorder = ({
         <div>
           <button
             onClick={resume}
-            className="bg-red-500 hover:bg-red-600 text-white p-4 rounded transition cursor-pointer"
+            className="bg-green-500 hover:bg-green-600 text-white p-4 w-32 rounded transition cursor-pointer"
           >
             Resume
           </button>
@@ -43,7 +43,7 @@ export const Recorder = ({
         <div>
           <button
             onClick={pause}
-            className="bg-red-500 hover:bg-red-600 text-white p-4 rounded transition cursor-pointer"
+            className="bg-yellow-500 hover:bg-yellow-600 text-white p-4 w-32 rounded transition cursor-pointer"
           >
             Pause
           </button>
@@ -54,7 +54,7 @@ export const Recorder = ({
         <div>
           <button
             onClick={stop}
-            className="bg-red-500 hover:bg-red-600 text-white p-4 rounded transition cursor-pointer"
+            className="bg-red-500 hover:bg-red-600 text-white p-4 w-32 rounded transition cursor-pointer"
           >
             Stop
           </button>

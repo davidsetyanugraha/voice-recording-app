@@ -12,7 +12,7 @@ export const Transcription = ({
   audioUrl,
 }: TranscriptionProps) => {
   return (
-    <div className="flex-grow bg-gray-100 p-8 rounded text-justify">
+    <div className="flex-grow bg-gray-100 p-8 rounded">
       {loading ? (
         <p className="text-gray-600">Uploading & transcribing...</p>
       ) : (

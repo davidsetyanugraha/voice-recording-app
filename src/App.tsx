@@ -17,8 +17,12 @@ const App = () => {
   } = useMediaRecorder(convertAudioToText, setTranscription);
 
   return (
-    <div className="flex flex-col h-screen mx-auto space-y-4 lg:w-3/4 overflow-x-hidden">
-      <h1 className="text-2xl w-full m-4">Voice recorder</h1>
+    <div className="flex flex-col h-screen mx-auto lg:w-3/4 overflow-x-hidden">
+      <h1 className="text-2xl w-full m-4">
+        <a href="https://www.linkedin.com/in/dsetyanugraha/" target="_blank">
+          Voice recorder
+        </a>
+      </h1>
 
       <Board
         state={recordingState}
