@@ -33,6 +33,9 @@ test("App should work correctly", async () => {
   await expect(page.getByRole("button", { name: "Pause" })).toBeVisible();
   await expect(page.getByRole("button", { name: "Stop" })).toBeVisible();
 
+  // For realistic UX, wait for recording to start for 2 seconds
+  await page.waitForTimeout(2000);
+
   // Click on the pause button should pause the recording
   await page.getByRole("button", { name: "Pause" }).click();
   await expect(
