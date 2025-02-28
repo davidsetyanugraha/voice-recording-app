@@ -79,5 +79,5 @@ pnpm test:e2e
 🖥️ **Frontend**: React, TypeScript, Vite  
 🔄 **State Management**: React Hooks  
 🎨 **Styling**: TailwindCSS  
-🚀 **CI/CD**: GitHub Pages, GitHub Actions  
-🧪 **Testing**: Jest, React Testing Library
+🚀 **CI/CD**: Vercel, GitHub Actions  
+🧪 **Testing**: Jest, React Testing Library, Playwright
