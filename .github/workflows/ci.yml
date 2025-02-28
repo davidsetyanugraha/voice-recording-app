@@ -42,10 +42,5 @@ jobs:
       - name: Run Unit test
         run: pnpm test
 
-      - name: Fetch Vercel Preview URL
-        run: echo "BASE_URL=https://${{ github.event.deployment_status.target_url }}" >> $GITHUB_ENV
-
-      - name: Run Playwright Tests
-        run: pnpm test
-        env:
-          BASE_URL: ${{ env.BASE_URL }}
+      - name: Run E2E test
+        run: pnpm test:e2e
