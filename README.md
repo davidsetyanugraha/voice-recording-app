@@ -18,8 +18,6 @@ https://www.loom.com/share/ef6dacbcd4644773840c5b6c633d17e6?sid=f6247511-0a10-41
 
 ## Running development server locally
 
-### Environment variable
-
 Create `.env` file in the root directory :
 
 ```
@@ -60,7 +58,7 @@ pnpm dev
 
 ## Running Tests
 
-To run all tests:
+To run unit tests:
 
 ```
 pnpm test
