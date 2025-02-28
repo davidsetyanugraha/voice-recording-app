@@ -55,7 +55,9 @@ export const useSpeechToText = () => {
 
     setTranscription(
       data.text ??
-        `Error in calling API: ${data.error?.message ?? "Unknown error"}`
+        `Oops! We encountered an issue in producing transcription. Please try again in a moment. Error: ${
+          data.error?.message ?? "Unknown error"
+        }.`
     );
 
     setIsUploading(false);
