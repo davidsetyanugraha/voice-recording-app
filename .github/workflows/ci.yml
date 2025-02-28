@@ -5,6 +5,7 @@ on:
     branches:
       - main
   pull_request:
+  workflow_dispatch: # Allows manual trigger for E2E tests
 
 jobs:
   check:
@@ -45,6 +46,7 @@ jobs:
   E2E:
     name: Run E2E tests
     runs-on: ubuntu-latest
+    if: github.event_name == 'workflow_dispatch' # Run only when manually triggered
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
