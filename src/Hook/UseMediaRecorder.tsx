@@ -111,7 +111,6 @@ export const useMediaRecorder = (
     stopRecording,
     resume,
     pause,
-    stop,
     recordingState,
     audioUrl,
   };
