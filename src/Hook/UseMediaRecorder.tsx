@@ -44,15 +44,17 @@ export const useMediaRecorder = (
 
   const resetRecorder = () => {
     setTranscription(null);
+
     if (audioUrl) {
       URL.revokeObjectURL(audioUrl);
+      setAudioUrl("");
     }
   };
 
   const startRecording = async () => {
     try {
+      setRecordingState(RECORDING_STATE.RECORDING);
       resetRecorder();
-
       const mediaStream = await navigator.mediaDevices.getUserMedia({
         audio: true,
       });
@@ -65,7 +67,6 @@ export const useMediaRecorder = (
       mediaRecorderRef.current = recorder;
 
       recorder.start();
-      setRecordingState(RECORDING_STATE.RECORDING);
     } catch (error) {
       console.error("Recording error:", error);
     }

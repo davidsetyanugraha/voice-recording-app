@@ -1,40 +1,39 @@
 import { test, expect, chromium } from "@playwright/test";
 
-// Test the whole fuctionality of the production app
-test("App should work correctly", async () => {
-  // Launch browser with fake media stream flags
+const setupNewPage = async () => {
   const browser = await chromium.launch({
-    headless: true, // Change to false for debugging
+    headless: true,
     args: [
-      "--use-fake-device-for-media-stream", // Simulate a fake microphone
-      "--use-fake-ui-for-media-stream", // Auto-approve microphone access
+      "--use-fake-device-for-media-stream",
+      "--use-fake-ui-for-media-stream",
     ],
   });
 
-  // Create a new browser context with microphone permission
   const context = await browser.newContext({
     permissions: ["microphone"],
   });
 
-  // Create a new page in this context
-  const page = await context.newPage();
+  return await context.newPage();
+};
 
-  // visit page
+// Test the whole fuctionality of the production app
+test("App should work correctly", async () => {
+  const page = await setupNewPage();
   await page.goto("https://voice-recording-app-one.vercel.app/");
 
-  // check if the page is loaded
+  // verify if the page is loaded
   await expect(
     page.getByText("Press record button below to start recording...")
   ).toBeVisible();
   await expect(page.getByRole("button", { name: "Record" })).toBeVisible();
 
-  // Record
+  // Click on the record button should start recording
   await page.getByRole("button", { name: "Record" }).click();
   await expect(page.getByText("Recording in progress...")).toBeVisible();
   await expect(page.getByRole("button", { name: "Pause" })).toBeVisible();
   await expect(page.getByRole("button", { name: "Stop" })).toBeVisible();
 
-  // Pause
+  // Click on the pause button should pause the recording
   await page.getByRole("button", { name: "Pause" }).click();
   await expect(
     page.getByText(
@@ -42,11 +41,11 @@ test("App should work correctly", async () => {
     )
   ).toBeVisible();
 
-  // Resume
+  // Click on the resume button should resume the recording
   await page.getByRole("button", { name: "Resume" }).click();
   await expect(page.getByText("Recording in progress...")).toBeVisible();
 
-  // Stop
+  // Click on the stop button should stop the recording
   await page.getByRole("button", { name: "Stop" }).click();
   await expect(
     page.getByText("Converting voice to transcript...")

@@ -9,8 +9,12 @@ The application is hosted on Vercel and is accessible at https://voice-recording
 ✅ Record audio using the browser microphone  
 ✅ Pause, resume, and stop recordings  
 ✅ Transcribe audio to text using AI  
-✅ Play back previous recording  
-✅ Mobile-friendly and fast performance
+✅ Play back the recording  
+✅ Offline support and mobile-friendly
+
+## Demo
+
+https://www.loom.com/share/ef6dacbcd4644773840c5b6c633d17e6?sid=f6247511-0a10-412b-84b6-e29adf3c3697
 
 ## Running development server locally
 
